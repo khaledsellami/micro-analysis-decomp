@@ -59,6 +59,11 @@ public class Main implements Callable<Integer> {
             description = "The logging level",
             defaultValue = "defaultlog")
     private LogLevel logLevel;
+    @CommandLine.Option(
+            names = {"-m", "--monolithic"},
+            description = "To specify is the application being analyzed is monolithic or not.",
+            required = false, defaultValue = "false")
+    private boolean isMonolithic;
 
     private ArrayList<String> serviceNames;
 
@@ -79,7 +84,12 @@ public class Main implements Callable<Integer> {
         fileLogger.debug("Starting analysis for project " + fileName + " in path " + appPath);
 
         ArrayList<String> inputs = new ArrayList<>();
-        find_src(appPath, inputs, false);
+        if (isMonolithic){
+            inputs.add(appPath);
+        }
+        else {
+            find_src(appPath, inputs, false);
+        }
         ArrayList<Object_> allObjects = new ArrayList<>();
         ArrayList<Executable_> allMethods = new ArrayList<>();
         int it = 0;
