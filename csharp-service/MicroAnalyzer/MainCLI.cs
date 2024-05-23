@@ -21,7 +21,7 @@ class MainCLI
         public bool IncludeTest { get; set; }
 
         [Option('m', "monolithic", HelpText = "application has a monolithic architecture", Required = false, Default = false)]
-        public bool IsDistributed { get; set; }
+        public bool IsMonolithic { get; set; }
 
         [Option('l', "logging", HelpText = "The logging level", Required = false, Default = "default")]
         public string? LogLevel { get; set; }
