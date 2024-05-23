@@ -20,12 +20,15 @@ if __name__ == "__main__":
     parser.add_argument("-l", "--logging", type=str, help='The logging level', default="default",
                         choices=["info", "debug", "warning", "error", "default"])
     parser.add_argument("-s", "--print", help='The logging level', action="store_true")
+    parser.add_argument("-m", "--monolithic", action="store_true",
+                        help='To specify is the application being analyzed is monolithic or not.')
     args = parser.parse_args()
 
     source_path = args.path
     output_path = args.output
     loglevel = args.logging
     print_tree = args.print
+    is_monolithic = args.monolithic
 
     app_name = os.path.basename(source_path)
 
@@ -49,9 +52,12 @@ if __name__ == "__main__":
         exit(0)
 
     logger.debug("Processing application {}".format(app_name))
-    serviceFinder = ServiceFinder(source_path)
-    serviceFinder.create_root()
-    services = serviceFinder.get_services()[1]
+    if is_monolithic:
+        services = [source_path]
+    else:
+        serviceFinder = ServiceFinder(source_path)
+        serviceFinder.create_root()
+        services = serviceFinder.get_services()[1]
     logger.debug("Found {} services".format(len(services)))
 
     objects = list()
