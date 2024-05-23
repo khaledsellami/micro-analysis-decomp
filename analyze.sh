@@ -20,13 +20,12 @@ do
     then
       python $PROJ_PATH/python-service/cli.py -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
     elif [ $lang = "c#" ]; then
-      $PROJ_PATH/csharp-service/MicroAnalyzer/bin/Debug/net8.0/MicroAnalyzer -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
+      $PROJ_PATH/csharp-service/build/MicroAnalyzer -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
       mv ./Logs/log*.txt $PROJ_PATH/data/$lang/$filename/
     elif [ $lang = "go" ]; then
       $PROJ_PATH/go-service/build/MicroAnalyzer -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
-      mv logs.log $PROJ_PATH/data/$lang/$filename/logs.log
     else
-      java -jar $PROJ_PATH/java-service/target/MicroAnalyzer-1.0-runnable.jar -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
+      java -jar $PROJ_PATH/java-service/target/MicroAnalyzer.jar -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
       mv logs.log $PROJ_PATH/data/$lang/$filename/logs.log
     fi
     rm -rf $TEMP_PATH/*
