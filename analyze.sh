@@ -1,29 +1,35 @@
 PROJ_PATH=$(pwd)
 REPOS_PATH=$1
 TEMP_PATH="$PROJ_PATH/temp"
-#LANGUAGES="java also_java python"
-LANGUAGES="python"
+LANGUAGES="java also_java python c# go"
+#LANGUAGES="c#"
 
 cd $REPOS_PATH
-#mkdir $TEMP_PATH
+mkdir $TEMP_PATH
 
 for lang in $LANGUAGES
 do
-  cd $lang
+  ls
+  cd "$lang" || exit
   for repo in $(ls)
   do
-    filename="${repo%.*}"
+    filename=${repo}
     echo "Processing repository $filename"
-    unzip -q $repo -d $TEMP_PATH
-    filename=$(ls $TEMP_PATH)
+    cp -r $repo $TEMP_PATH/
     if [ $lang = "python" ]
     then
       python $PROJ_PATH/python-service/cli.py -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
+    elif [ $lang = "c#" ]; then
+      $PROJ_PATH/csharp-service/MicroAnalyzer/bin/Debug/net8.0/MicroAnalyzer -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
+      mv ./Logs/log*.txt $PROJ_PATH/data/$lang/$filename/
+    elif [ $lang = "go" ]; then
+      $PROJ_PATH/go-service/build/MicroAnalyzer -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
+      mv logs.log $PROJ_PATH/data/$lang/$filename/logs.log
     else
       java -jar $PROJ_PATH/java-service/target/MicroAnalyzer-1.0-runnable.jar -p $TEMP_PATH/$filename -o $PROJ_PATH/data/$lang
       mv logs.log $PROJ_PATH/data/$lang/$filename/logs.log
     fi
-    rm -rf $TEMP_PATH
+    rm -rf $TEMP_PATH/*
     echo "Done processing repository $filename"
     echo "============================================================================================================"
     echo "============================================================================================================"
