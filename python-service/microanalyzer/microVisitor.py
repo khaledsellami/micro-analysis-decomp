@@ -1,7 +1,7 @@
 import ast
 import logging
 
-from models import Object_, Executable_
+from .models import Object_, Executable_
 
 
 class MicroVisitor(ast.NodeVisitor):
