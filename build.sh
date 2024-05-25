@@ -25,6 +25,11 @@ do
     echo "Installing Python parser package"
     cd "$PROJ_PATH"/python-service || exit 1
     pip install .
+  elif [ "$lang" = "javascript" ]
+  then
+    echo "Installing NodeJS parser dependencies"
+    cd "$PROJ_PATH"/js-service || exit 1
+    npm install
   else
     echo "Unknown language: "$lang""
   fi
