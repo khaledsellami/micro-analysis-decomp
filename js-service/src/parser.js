@@ -15,13 +15,13 @@ const PACKAGE_NAME_SEP = '$';
 const PACKAGE_SEP = '/';
 
 
-function parseProject(rootPath) {
+function parseProject(rootPath, serviceName) {
     const files = getJSFiles(rootPath);
     let allObjects = [];
     let allExecutables = [];
     for (const file of files) {
         logger.debug("File: " + file)
-        const result = parseFile(file, rootPath);
+        const result = parseFile(file, rootPath, serviceName);
         allObjects = allObjects.concat(result.objects);
         allExecutables = allExecutables.concat(result.executables);
     }

@@ -53,7 +53,7 @@ function main(options) {
     let allExecutables = [];
     for (const [serviceName, servicePath] of Object.entries(serviceMap)) {
         logger.info("Working on service " + serviceName + " at " + servicePath)
-        let parser = parseProject(servicePath);
+        let parser = parseProject(servicePath, serviceName);
         allObjects = allObjects.concat(parser.objects);
         allExecutables = allExecutables.concat(parser.executables);
     }
