@@ -102,7 +102,7 @@ function visitMethod(fileVisitor, node, parentName, parentFullName) {
         return;
     }
     const content = fileVisitor.code.substring(node.range[0], node.range[1]);
-    let executable_ = new Executable_(simpleName, fullName, parentFullName, fileVisitor.serviceName, content);
+    let executable_ = new Executable_(simpleName, fullName, fileVisitor.serviceName, content, parentFullName);
     fileVisitor.executables.push(executable_);
 }
 
@@ -117,7 +117,7 @@ function visitFunction(fileVisitor, node, prefix = '') {
     fullName = prefix + simpleName;
     const content = fileVisitor.code.substring(node.range[0], node.range[1]);
     let parentFullName = getParentName(prefix);
-    let executable_ = new Executable_(simpleName, fullName, parentFullName, fileVisitor.serviceName, content);
+    let executable_ = new Executable_(simpleName, fullName, fileVisitor.serviceName, content, parentFullName);
     logger.debug(`Function declaration ${fullName}`);
     fileVisitor.executables.push(executable_);
     return executable_.fullName;
