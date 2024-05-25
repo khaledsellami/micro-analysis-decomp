@@ -1,0 +1,11 @@
+{
+  "name": "st_analyzer_js",
+  "version": "0.1.0",
+  "description": "Statically analyzes a microservices application to generate a list of its classes/methods with their corresponding source code samples and their microservices.",
+  "main": "main.js",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "esprima-next": "^6.0.3",
+    "winston": "^3.13.0"
+  }
+}
