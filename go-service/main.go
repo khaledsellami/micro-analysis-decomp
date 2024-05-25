@@ -91,7 +91,7 @@ func saveData(objects []*Object_, executables []Executable_, path string) {
 	// Save executables
 	filename = "methodData.json"
 	fileSavePath = filepath.Join(path, filename)
-	logger.Debug("Saving class data in " + fileSavePath)
+	logger.Debug("Saving method data in " + fileSavePath)
 	file, _ = json.MarshalIndent(executables, "", " ")
 	_ = os.WriteFile(fileSavePath, file, 0644)
 }
