@@ -30,6 +30,11 @@ do
     echo "Installing NodeJS parser dependencies"
     cd "$PROJ_PATH"/js-service || exit 1
     npm install
+  elif [ "$lang" = "ruby" ]
+  then
+    echo "Installing Ruby parser dependencies"
+    cd "$PROJ_PATH"/ruby-service || exit 1
+    bundle install
   else
     echo "Unknown language: "$lang""
   fi
