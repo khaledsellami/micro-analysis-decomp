@@ -85,12 +85,26 @@ Here is the list of the available parsers and their corresponding CLI scripts/en
 * JavaScript: `node ./javascript-service/main.js`
 * Ruby: `ruby ./ruby-service/main.rb`
 
-## Help
+### Help
 
 If you wish to get more information about the available options in the main script, you can run the following command:
 ```
   <CLI_SCRIPT> --help
 ```
+
+## Roadmap
+* Implementing logging within the same path as the output directory for the following parsers:
+  * C#
+  * Java
+* Implementing the search for microservices in the following parsers:
+  * Go
+  * JavaScript
+  * Ruby
+* Implementing new parsers for other programming languages:
+  * Rust
+  * C++/C
+  * PHP
+  * COBOL
 
 ## Authors
 
