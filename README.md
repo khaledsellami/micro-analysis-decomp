@@ -74,14 +74,14 @@ For example, to run the Python parser, you can use the following command:
 
 Or, for the C# parser, you can use the following command:
 ```
-  ./csharp-service/build/MicroAnalyzer --path /path/to/source/code --output /path/to/output --monolithic
+  ./csharp-service/MicroAnalyzer/build/MicroAnalyzer --path /path/to/source/code --output /path/to/output --monolithic
 ```
 
 Here is the list of the available parsers and their corresponding CLI scripts/entrypoints (<CLI_SCRIPT>):
 * Python: `python ./python-service/cli.py`
 * Golang: `./go-service/build/MicroAnalyzer` or `.\go-service\build\MicroAnalyzer.exe` (in Windows)
 * Java: `java -jar ./java-service/target/MicroAnalyzer.jar`
-* C#: `./csharp-service/build/MicroAnalyzer` or `.\csharp-service\build\MicroAnalyzer.exe` (in Windows)
+* C#: `./csharp-service/MicroAnalyzer/build/MicroAnalyzer` or `.\csharp-service\build\MicroAnalyzer.exe` (in Windows)
 * JavaScript: `node ./javascript-service/main.js`
 * Ruby: `ruby ./ruby-service/main.rb`
 
