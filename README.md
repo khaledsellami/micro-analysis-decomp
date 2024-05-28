@@ -16,7 +16,7 @@ The parsers work in 3 steps:
     - Types (modeled in Object_ classes): they can be Classes/Structs/Objects depending on the programming language. (for example, in Java, the detected types are classes and interfaces, in Go, the detected types are structs, in Python, the detected types are classes, etc.)
     - Methods (modeled in Executable_ classes): they can be Functions/Methods depending on the programming language. (for example, in Java, the detected methods are methods, in Go, the detected methods are functions, in Python, the detected methods are methods and functions, etc.) 
 3. Extracting the code snippets of the detected components.
-4. Save the extracted components and their code snippets in JSON files ("typeData.json" and "methodData.json"). The path to the output directory is specified using the "-o" or "--output" flag. By default, it's "./data/<programming language name>/<application name>".
+4. Save the extracted components and their code snippets in JSON files ("typeData.json" and "methodData.json"). The path to the output directory is specified using the "-o" or "--output" flag. By default, it's "./data/[programmingLanguageName]/[applicationName]".
 
 This project is not complete as yet and is still under development. The following features are missing:
 - The search for microservices in the application for the following parsers: Go, JavaScript, and Ruby.

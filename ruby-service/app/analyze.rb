@@ -33,7 +33,7 @@ def analyze_app(app_name, app_path, output_path: File.join(Dir.pwd, 'data', 'rub
   all_objects = []
   all_executables = []
   service_map.each do |service_name, service_path|
-    logger.info("Working on service: #{service_name}")
+    logger.debug("Working on service: #{service_name}")
     ast_processor = ProjectParser.new(service_path, service_name)
     ast_processor.parse
     all_objects.concat(ast_processor.objects_)
