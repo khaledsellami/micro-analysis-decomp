@@ -15,7 +15,7 @@ if __name__ == "__main__":
                         default=os.path.join(os.curdir, "data", "python"), required=False)
     parser.add_argument("-l", "--logging", type=str, help='The logging level', default="default",
                         choices=["info", "debug", "warning", "error", "default"])
-    parser.add_argument("-s", "--print", help='The logging level', action="store_true")
+    parser.add_argument("-s", "--print", help='print the node tree', action="store_true")
     parser.add_argument("-m", "--monolithic", action="store_true",
                         help='To specify is the application being analyzed is monolithic or not.')
     args = parser.parse_args()
