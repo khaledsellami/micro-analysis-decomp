@@ -11,14 +11,14 @@ The project is part of a research project that aims to decompose monolithic appl
 The parsers share the same API and structure, generate the same output structure and work in a similar way. The parsers are written in different programming languages to support parsing applications written in these languages. The parsers are written in a way that allows them to be used interchangeably.
 
 The parsers work in 3 steps:
-1. Search for the microservices in the given application. This step is ignored has been specified as monolithic (through the "-m" or "--monolithic" flag). 
+1. Search for the microservices in the given application. This step will be ignored if it has been specified as monolithic (through the "-m" or "--monolithic" flag). 
 2. Parsing the source code of the application to detect its components:
     - Types (modeled in Object_ classes): they can be Classes/Structs/Objects depending on the programming language. (for example, in Java, the detected types are classes and interfaces, in Go, the detected types are structs, in Python, the detected types are classes, etc.)
     - Methods (modeled in Executable_ classes): they can be Functions/Methods depending on the programming language. (for example, in Java, the detected methods are methods, in Go, the detected methods are functions, in Python, the detected methods are methods and functions, etc.) 
 3. Extracting the code snippets of the detected components.
 4. Save the extracted components and their code snippets in JSON files ("typeData.json" and "methodData.json"). The path to the output directory is specified using the "-o" or "--output" flag. By default, it's "./data/[programmingLanguageName]/[applicationName]".
 
-This project is not complete as yet and is still under development. The following features are missing:
+This project is not complete yet and is still under development. The following features are missing:
 - The search for microservices in the application for the following parsers: Go, JavaScript, and Ruby.
 - Logging within the same path as the output directory for the following parsers: C# and Java.
 
@@ -117,4 +117,4 @@ Khaled Sellami
 
 ## License
 
-TODO: add the license
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
